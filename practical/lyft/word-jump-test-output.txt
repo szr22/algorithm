@@ -1,0 +1,4 @@
+2
+hit,hot,hog,cog
+hit,hot,cot,cog
+0
