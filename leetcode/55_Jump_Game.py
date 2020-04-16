@@ -21,19 +21,16 @@ from typing import List
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
         n = len(nums)
-        if n <= 1:
-            return True
-        dp = [-1 for _ in range(n)]
-        dp[0] = nums[0]
-        for i in range(1, n):
-            if dp[i-1]+1 >= n:
+        max_pos = 0
+        for i, num in enumerate(nums):
+            max_pos = max(max_pos, num+i)
+            if max_pos >= n-1:
                 return True
-            if dp[i-1]+1 < i:
+            if max_pos < i+1:
                 return False
-            dp[i] == max(dp[i-1], nums[i]+i)
-            
         return False
 
-nums = [3,2,1,0,4]
+
+nums = [3,0,8,2,0,0,1]
 res = Solution().canJump(nums)
 print(res)
