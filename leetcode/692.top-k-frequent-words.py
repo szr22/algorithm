@@ -27,7 +27,7 @@ class Solution:
         word_counter = CustomerCounter(words)
         top_k_freq = word_counter.most_common(k)
         return [word for (word, _) in top_k_freq]
-        
+
 # @lc code=end
 
 words = ["i", "love", "leetcode", "i", "love", "coding"]
@@ -35,3 +35,6 @@ k = 3
 
 res = Solution().topKFrequent(words, k)
 print(res)
+
+# using trie and min-heap
+# https://www.geeksforgeeks.org/find-the-k-most-frequent-words-from-a-file/
