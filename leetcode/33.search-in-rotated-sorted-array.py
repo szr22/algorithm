@@ -90,4 +90,17 @@ target = 0
 # nums = [3,5,1]
 # target = 1
 res = Solution().search(nums, target)
-print(res)
+# print(res)
+
+
+nums = [4,5,6,7,0,1,2]
+nums = [0,1,2,4,5,6,7]
+
+nums = [3,4,5,6,1,2]
+target = 2
+
+nums = [1, 3]
+target = 3
+
+pivotPos = Solution().search(nums, target)
+print(pivotPos)
