@@ -26,6 +26,7 @@ class Solution:
                     else:
                         right = mid
                 ends[right] = num
+            print(ends)
         return len(ends)
 
 

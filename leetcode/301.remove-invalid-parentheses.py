@@ -12,6 +12,7 @@ class Solution:
         queue = [s]
         found = False
         while queue:
+            print(queue)
             cur = queue.pop(0)
             if self.isValid(cur):
                 res.append(cur)

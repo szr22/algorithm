@@ -15,14 +15,16 @@ class Solution:
         dp[0] = True
         for num in nums:
             for i in range(target, num-1, -1):
+                print(i)
                 dp[i] |= dp[i-num]
+            print(dp)
 
         return dp[target]
 
 
 # @lc code=end
 
-nums = [1, 5, 11, 5]
-nums = [1, 2, 3, 5]
+nums = [1, 5, 6, 3, 2, 5]
+# nums = [1, 2, 3, 5]
 res = Solution().canPartition(nums)
 print(res)
