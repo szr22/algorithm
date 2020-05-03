@@ -18,15 +18,16 @@ class Solution:
             return
         for i in range(1, len(num)+1):
             cur = num[:i]
+            # invalid
             if len(cur)>1 and cur[0]=='0':
                 return
-            next = num[i:]
+            nextNum = num[i:]
             if len(out)>0:
-                self.helper(next, target, int(cur), curNum+int(cur), out+'+'+cur, res)
-                self.helper(next, target, -int(cur), curNum-int(cur), out+'-'+cur, res)
-                self.helper(next, target, diff*int(cur), (curNum-diff)+diff*int(cur), out+'*'+cur, res)
+                self.helper(nextNum, target, int(cur), curNum+int(cur), out+'+'+cur, res)
+                self.helper(nextNum, target, -int(cur), curNum-int(cur), out+'-'+cur, res)
+                self.helper(nextNum, target, diff*int(cur), (curNum-diff)+diff*int(cur), out+'*'+cur, res)
             else:
-                self.helper(next, target, int(cur), int(cur), cur, res)
+                self.helper(nextNum, target, int(cur), int(cur), cur, res)
 
 # @lc code=end
 
