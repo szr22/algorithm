@@ -15,6 +15,7 @@ class Solution:
                 if not s:
                     break
                 s.add(i)
+                print(pre)
                 for a in s:
                     pre[a] += 1
                     res[a] = self.abbreviate(wordDict[a], pre[a])
