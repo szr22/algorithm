@@ -14,18 +14,10 @@
 
 class Solution:
     def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
-        def isSubtree(self, s: TreeNode, t: TreeNode) -> bool:
-        if not s and not t:
-            return True
-        if not t or not s:
+        if not s:
             return False
-
-        res = False
-        if s.val == t.val:
-            res = self.is_same_tree(s, t)
-            if res == True:
-                return res
-
+        if self.is_same_tree(s, t):
+            return True
         return (
             self.isSubtree(s.left, t)
             or self.isSubtree(s.right, t)
@@ -37,12 +29,30 @@ class Solution:
         if not s or not t:
             return False
 
-        if s.val == t.val:
-            return (
-                self.is_same_tree(s.left, t.left)
-                and self.is_same_tree(s.right, t.right)
-            )
+        if s.val != t.val:
+            return False
 
-        return False
+        return (
+            self.is_same_tree(s.left, t.left)
+            and self.is_same_tree(s.right, t.right)
+        )
+
+    def isSubtreeSerialize(self, s, t):
+        oStrList1 = []
+        oStrList2 = []
+
+        self.serialize(s, oStrList1)
+        self.serialize(t, oStrList2)
+        return ('').join(oStrList2) in ('').join(oStrList1)
+
+    def serialize(self, node, oStrList):
+        if not node:
+            oStrList.append(',#')
+        else:
+            oStrList.append(','+str(node.val))
+            self.serialize(node.left, oStrList)
+            self.serialize(node.right, oStrList)
+
 # @lc code=end
 
+# [1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,null,1,2] \n [1,null,1,null,1,null,1,null,1,null,1,2]

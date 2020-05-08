@@ -21,7 +21,7 @@ class File(object):
             return False
         else:
             return self.name + self.content > other.name + other.content
-        
+
 
     def __str__(self):
         return self.name + self.content
@@ -30,10 +30,11 @@ class Solution:
     def reorderLogFiles(self, logs: List[str]) -> List[str]:
         let_files = []
         dig_files = []
-        
+
         for log in logs:
             l_name = log.split(' ')[0]
             l_cont = log[len(l_name):]
+            print(l_cont)
             if re.match("^[0-9 ]+$", l_cont):
                 dig_files.append(File(l_name, l_cont))
             else:
@@ -45,6 +46,22 @@ class Solution:
         for f in dig_files:
             res.append(str(f))
         return res
+
+    def reorderLogFilesBetter(self, logs: List[str]) -> List[str]:
+        d_logs = []
+        l_logs = []
+        res = []
+
+        for log in logs:
+            splited_log = log.split()
+            if splited_log[1].isdigit():
+                d_logs.append(log)
+            else:
+                l_logs.append([splited_log[0], ' '.join(splited_log[1:])])
+
+        for item in sorted(l_logs, key=operator.itemgetter(1,0)):
+            res.append(' '.join(item))
+        return res + d_logs
 # @lc code=end
 
 

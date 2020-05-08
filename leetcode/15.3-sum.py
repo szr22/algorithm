@@ -8,7 +8,6 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
-        start, end = 0, len(nums)-1
         res = []
 
         for i in range(len(nums)):
