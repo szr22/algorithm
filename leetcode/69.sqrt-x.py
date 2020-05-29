@@ -22,5 +22,5 @@ class Solution:
 
 # @lc code=end
 
-res = Solution().mySqrt(81)
+res = Solution().mySqrt(80)
 print(res)
