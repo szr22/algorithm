@@ -3,7 +3,7 @@
 #
 # [72] Edit Distance
 #
-
+from functools import lru_cache
 # @lc code=start
 class Solution:
     def minDistance(self, word1: str, word2: str) -> int:
@@ -31,6 +31,7 @@ class Solution:
         # print(dp)
         return dp[len1][len2]
 
+    @lru_cache(None)
     def editDistanceRec(self, str1, str2):
         m, n = len(str1), len(str2)
         if m == 0 or n==0:
