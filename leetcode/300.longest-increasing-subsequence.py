@@ -29,6 +29,18 @@ class Solution:
             print(ends)
         return len(ends)
 
+    def lengthOfLISBisect(self, nums):
+        if not nums:
+            return 0
+        dp = list()
+        for val in nums:
+            if not dp or val > dp[-1]:
+                dp.append(val)
+            else:
+                insert_point = bisect_left(dp, val)
+                dp[insert_point] = val
+        return len(dp)
+
 
     def lengthOfLISdp(self, nums: List[int]) -> int:
         n = len(nums)
