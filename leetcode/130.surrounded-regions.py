@@ -30,6 +30,7 @@ class Solution:
                     board[i][j] = "O"
 
     def dfs(self, board, i, j):
+        print(board)
         if board[i][j] != "O":
             return
         h, w = len(board), len(board[0])
@@ -42,3 +43,7 @@ class Solution:
 
 # @lc code=end
 
+board = [["X","X","X","X"],["X","O","O","X"],["X","O","O","X"],["X","O","X","X"]]
+solution = Solution()
+solution.solve(board)
+print(board)
